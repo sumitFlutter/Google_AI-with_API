@@ -1,7 +1,7 @@
 import 'dart:convert';
-
-import 'package:google_gemini/screen/model/gemini_model.dart';
 import 'package:http/http.dart 'as http;
+
+import '../../screen/home/model/gemini_model.dart';
 class APIHelper{
   Future<GeminiModel?> apiCall(String question)
   async {
@@ -10,10 +10,10 @@ class APIHelper{
         "parts":[{
           "text": question}]}]};
    var body= jsonEncode(bodyJson);
-   var APIcalled =await http.post(Uri.parse("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyA7KFHsyuNyqUmpCt1d8cM5NSCcNbnVTQU"),headers: {"Content-Type":"application/json"},body: body);
+   var APIcalled =await http.post(Uri.parse("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyABXICSuYRz4zUTJ2lUW0VnesZQOJoo3Vk"),headers: {"Content-Type":"application/json"},body: body);
    if(APIcalled.statusCode==200)
      {
-       var jsonDecoded=jsonDecode(utf8.decode(APIcalled.bodyBytes));
+       var jsonDecoded=jsonDecode(APIcalled.body);
        GeminiModel g1=GeminiModel.mapToModel(jsonDecoded);
        return g1;
      }

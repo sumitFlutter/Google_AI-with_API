@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:google_gemini/screen/home/provider/gemini_provider.dart';
+import 'package:google_gemini/utils/routes/my_routes.dart';
+import 'package:provider/provider.dart';
 void main()
 {
   runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: GeminiProvider())
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        routes: appRoutes,
+      ),
     ),
   );
 }

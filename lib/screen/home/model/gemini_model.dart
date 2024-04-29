@@ -14,7 +14,7 @@ ContentModel? contentModel;
 CandidatesModel({this.contentModel});
 factory CandidatesModel.mapToModel(Map m1)
 {
-  return CandidatesModel(contentModel: m1["candidates"]);
+  return CandidatesModel(contentModel: ContentModel.mapToModel(m1["content"]));
 }
 }
 class ContentModel{
