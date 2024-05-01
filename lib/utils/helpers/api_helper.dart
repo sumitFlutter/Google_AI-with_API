@@ -10,7 +10,7 @@ class APIHelper{
         "parts":[{
           "text": question}]}]};
    var body= jsonEncode(bodyJson);
-   var APIcalled =await http.post(Uri.parse("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyABXICSuYRz4zUTJ2lUW0VnesZQOJoo3Vk"),headers: {"Content-Type":"application/json"},body: body);
+   var APIcalled =await http.post(Uri.parse("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyCsN0_UKDiZWEkjS5dB7_CSBwHk5GInnr0"),headers: {"Content-Type":"application/json"},body: body);
    if(APIcalled.statusCode==200)
      {
        var jsonDecoded=jsonDecode(APIcalled.body);
@@ -81,4 +81,11 @@ curl  \
     ]
   }
 }
+curl ?key=$GOOGLE_API_KEY \
+    -H 'Content-Type: application/json' \
+    -X POST \
+    -d '{
+      "contents": [{
+        "parts":[{
+          "text": "Write a story about a magic backpack."}]}]}' 2> /dev/null
  */
