@@ -10,6 +10,7 @@ void main()
         ChangeNotifierProvider.value(value: GeminiProvider())
       ],
       child: MaterialApp(
+        theme: ThemeData.dark(),
         debugShowCheckedModeBanner: false,
         routes: appRoutes,
       ),
