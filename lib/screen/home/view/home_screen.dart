@@ -40,6 +40,54 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(child: Scaffold(
       appBar: AppBar(
         title: const Text("Gemini Ai"),
+        actions: [
+          PopupMenuButton(itemBuilder: (context) {return
+            [
+              PopupMenuItem(child: Text("How to Delete a Specific Chat?"),onTap: () {
+                showDialog(context: context, builder: (context) {
+                  return AlertDialog(
+                    title: Text("How to Delete Chat?"),
+                    content:  Text("On Double Tap you can delete the Specific Chat",style: TextStyle(fontWeight: FontWeight.bold),),
+                    actions: [
+                      ElevatedButton(onPressed: () {
+                        Navigator.pop(context);
+                      }, child: Text("OK!"))
+                    ],
+                  );
+                },);
+              },),
+              PopupMenuItem(child: Text("How to All Delete Chat?"),onTap: () {
+                showDialog(context: context, builder: (context) {
+                  return AlertDialog(
+                    title: Text("How to All Delete Chat?"),
+                    content:  Text("On App info of gemini You have to press  Clear all Data ",style: TextStyle(fontWeight: FontWeight.bold),),
+                    actions: [
+                      ElevatedButton(onPressed: () {
+                        Navigator.pop(context);
+                      }, child: Text("OK!"))
+                    ],
+                  );
+                },);
+              },),
+              PopupMenuItem(child: Text("How to use (copy) Ai Generated Answer?"),onTap: ()
+              {
+                showDialog(context: context, builder: (context) {
+                  return AlertDialog(
+                    title: Text("How to use (copy) Ai Generated Answer?"),
+                    content:  Text("On Long Press of Text you can Select the Specific Chat or word or else Sentence",style: TextStyle(fontWeight: FontWeight.bold),),
+                    actions: [
+                      ElevatedButton(onPressed: () {
+                        Navigator.pop(context);
+                      }, child: Text("OK!"))
+                    ],
+                  );
+                },);
+              },)];
+          },
+            icon: Icon(Icons.info_outline),
+          )
+
+        ],
       ),
       body: Stack(
         children: [
@@ -116,6 +164,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       .sizeOf(context)
                       .width,
                   child: TextField(controller: textEditingController,
+                    minLines: 1,
+                    maxLines: 5,
                     textInputAction: TextInputAction.newline,
                     decoration: InputDecoration(
                         hintText: "Ask me Questions",
@@ -145,7 +195,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: EdgeInsets.all(5),
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),border: Border.all()),
                       child: const Center(child: Text("Kindly Please Check Your Network Connection",style: TextStyle(fontWeight: FontWeight.bold),),),),
-                const Center(child: Text("On Double Tap you can delete the Chat",style: TextStyle(fontWeight: FontWeight.bold),),)
               ],),
             ),
           ),
