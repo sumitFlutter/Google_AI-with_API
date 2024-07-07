@@ -33,3 +33,7 @@ Future Enhancements:
 Conclusion:
 Google Gemini AI, developed by Sumit Gohil, stands at the forefront of AI-driven applications in the Flutter ecosystem. With its powerful features and intuitive design, it caters to both tech enthusiasts and casual users looking to leverage AI for everyday tasks.
 
+
+<img src="https://github.com/sumitFlutter/Google_AI-with_API/assets/153794386/cf4b6c9b-480d-4c67-95ca-529004b01caf" height="400px"  weight="200px"/>
+<img src="https://github.com/sumitFlutter/Google_AI-with_API/assets/153794386/d0de7057-4581-4df2-84af-913cbf32411d" height="400px"  weight="200px"/>
+<img src="https://github.com/sumitFlutter/Google_AI-with_API/assets/153794386/3b085c3c-bf78-4162-9152-ff4005d384ae" height="400px"  weight="200px"/>
