@@ -4,8 +4,19 @@ import 'package:google_gemini/utils/routes/my_routes.dart';
 import 'package:provider/provider.dart';
 void main()
 {
-  runApp(
-    MultiProvider(
+  runApp(MyApp());
+}
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: GeminiProvider())
       ],
@@ -14,6 +25,6 @@ void main()
         debugShowCheckedModeBanner: false,
         routes: appRoutes,
       ),
-    ),
-  );
+    );
+  }
 }

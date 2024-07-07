@@ -30,15 +30,9 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     context.read<GeminiProvider>().readList();
     context.read<GeminiProvider>().onChangedConnectivity();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    readObject = context.read<GeminiProvider>();
-    watchObject = context.watch<GeminiProvider>();
     Future.delayed(
       const Duration(seconds: 2),
-      () {
+          () {
         if (readObject!.qnaList.length >= 9) {
           itemScrollController.scrollTo(
               index: readObject!.qnaList.length - 1,
@@ -46,9 +40,17 @@ class _HomeScreenState extends State<HomeScreen> {
         }
       },
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    readObject = context.read<GeminiProvider>();
+    watchObject = context.watch<GeminiProvider>();
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xff1e1e1e),
+        surfaceTintColor: Color(0xff1e1e1e),
         title: const Text("Gemini Ai"),
         actions: [
           PopupMenuButton(
@@ -203,7 +205,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               },
                               child: Container(
                                 padding: const EdgeInsets.all(10),
-                                width: watchObject!
+                                width: watchObject!.qnaList[index].text!.length>=100?
+                                MediaQuery.sizeOf(context).width * 0.60:
+                                watchObject!
                                             .qnaList[index].text!.length >=
                                         60
                                     ? MediaQuery.sizeOf(context).width * 0.45
