@@ -10,7 +10,7 @@ class APIHelper{
         "parts":[{
           "text": question}]}]};
    var body= jsonEncode(bodyJson);
-   var APIcalled =await http.post(Uri.parse("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyCsN0_UKDiZWEkjS5dB7_CSBwHk5GInnr0"),headers: {"Content-Type":"application/json"},body: body);
+   var APIcalled =await http.post(Uri.parse("https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyB9JVxZkKD0C9AnFCQBcFv-hs9o8SpE6So"),headers: {"Content-Type":"application/json"},body: body);
    if(APIcalled.statusCode==200)
      {
        var jsonDecoded=jsonDecode(APIcalled.body);
