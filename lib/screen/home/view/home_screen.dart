@@ -254,15 +254,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       ? SizedBox(
                           height: MediaQuery.sizeOf(context).height * 0.08,
                           width: MediaQuery.sizeOf(context).width,
-                          child: TextField(
+                          child: watchObject!.geminiModel != null
+                              ?TextField(
                             controller: textEditingController,
                             minLines: 1,
                             maxLines: 5,
                             textInputAction: TextInputAction.newline,
                             decoration: InputDecoration(
                                 hintText: "Ask me Questions",
-                                suffixIcon: watchObject!.geminiModel != null
-                                    ? IconButton(
+                                suffixIcon:  IconButton(
                                         onPressed: () async {
                                           FocusScope.of(context)
                                               .requestFocus(FocusNode());
@@ -284,11 +284,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                           }
                                         },
                                         icon: const Icon(Icons.send))
-                                    : const SpinKitFadingCircle(
-                                        size: 30,
-                                        color: Colors.white,
-                                      )),
-                          ),
+                                    ),
+                          ):
+                     Center(
+                       child: const SpinKitFadingCircle(
+                                           size: 30,
+                                           color: Colors.white,
+                                         ),
+                     )
                         )
                       : Container(
                           height: MediaQuery.sizeOf(context).height * 0.08,
