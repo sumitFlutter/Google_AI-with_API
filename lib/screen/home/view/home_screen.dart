@@ -30,6 +30,11 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     context.read<GeminiProvider>().readList();
     context.read<GeminiProvider>().onChangedConnectivity();
+  }
+  @override
+  Widget build(BuildContext context) {
+    readObject = context.read<GeminiProvider>();
+    watchObject = context.watch<GeminiProvider>();
     Future.delayed(
       const Duration(seconds: 2),
           () {
@@ -40,12 +45,6 @@ class _HomeScreenState extends State<HomeScreen> {
         }
       },
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    readObject = context.read<GeminiProvider>();
-    watchObject = context.watch<GeminiProvider>();
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
@@ -206,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Container(
                                 padding: const EdgeInsets.all(10),
                                 width: watchObject!.qnaList[index].text!.length>=100?
-                                MediaQuery.sizeOf(context).width * 0.60:
+                                MediaQuery.sizeOf(context).width * 0.50:
                                 watchObject!
                                             .qnaList[index].text!.length >=
                                         60
