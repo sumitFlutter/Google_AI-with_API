@@ -5,6 +5,7 @@ Application Description: Google Gemini AI
 
 Overview:
 Google Gemini AI is an innovative application developed by Sumit Gohil, leveraging the power of Flutter and Google AI Studio 1.5 version API. It integrates advanced artificial intelligence capabilities with a user-friendly interface to provide seamless functionality.
+<img src ="!https://github.com/user-attachments/assets/7cfb3dcd-a296-4550-b0cc-7954cfd1e4bd" />
 
 Key Features:
 1. AI-Powered Insights: Utilizes Google AI Studio API to deliver intelligent insights and predictions based on user input.
